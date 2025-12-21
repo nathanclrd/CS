@@ -1,16 +1,16 @@
-| Topic |
-| :--- |
-| [[#1. Introduction & Context]] |
-| [[#2. Definition of Approximation (Order $n$)]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Interpretation]] |
-| [[#3. Properties]] |
-| [[#4. Taylor's Theorem (Existence)]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Special Case: Polynomials]] |
-| [[#5. Differentiability vs. Approximation]] |
-| [[#6. Remainder Estimation (Error Analysis)]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Practical Application (Bounding)]] |
+| Topic                                                              |
+| :----------------------------------------------------------------- |
+| [[#1. Introduction & Context]]                                     |
+| [[#2. Definition of Approximation (Order $n$)]]                    |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Interpretation]]                        |
+| [[#3. Properties]]                                                 |
+| [[#4. Taylor's Theorem (Existence)]]                               |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Special Case: Polynomials]]             |
+| [[#5. Differentiability vs. Approximation]]                        |
+| [[#6. Remainder Estimation (Error Analysis)]]                      |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Practical Application (Bounding)]]      |
 | &nbsp;&nbsp;&nbsp;&nbsp;[[#Useful Formula (Lagrange Error Bound)]] |
-| [[#7. Example: Cosine Function]] |
+| [[#7. Example: Cosine Function]]                                   |
 
 Tags: #math #analysis #polynomials #taylor
 # Linear Algebra: Approximation
