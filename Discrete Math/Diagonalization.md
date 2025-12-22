@@ -1,18 +1,18 @@
-| Topic                                                     |
-| :-------------------------------------------------------- |
-| [[#1. Core Definitions]]                                  |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Eigenvalues & Eigenvectors]]   |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Multiplicities]]               |
-| [[#2. Key Polynomials]]                                   |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Characteristic Polynomial]]    |
+| Topic |
+| :--- |
+| [[#1. Core Definitions]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Eigenvalues & Eigenvectors]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Multiplicities]] |
+| [[#2. Key Polynomials]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Characteristic Polynomial]] |
 | &nbsp;&nbsp;&nbsp;&nbsp;[[#Minimal Polynomial ($\pi_A$)]] |
-| [[#3. Theoretical Properties]]                            |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Similar Matrices]]             |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Polynomial Lemma]]             |
-| [[#4. Criteria for Diagonalization]]                      |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Corollaries & Applications]]   |
-| [[#5. Practical Algorithm]]                               |
-| [[#6. Solved Example: Computing the Basis]]               |
+| [[#3. Theoretical Properties]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Similar Matrices]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Polynomial Lemma]] |
+| [[#4. Criteria for Diagonalization]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Corollaries & Applications]] |
+| [[#5. Practical Algorithm]] |
+| [[#6. Solved Example: Computing the Basis]] |
 
 Tags: #math #linear_algebra #matrices #eigenvalues #diagonalization
 

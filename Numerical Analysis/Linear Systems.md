@@ -1,19 +1,24 @@
-
-| Topic                                                                |
-| :------------------------------------------------------------------- |
-| [[#1. Direct Methods]]                                               |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Gaussian Elimination]]                    |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Pivoting Strategies]]                     |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#LU Decomposition]]                        |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#The Inverse Matrix ($A^{-1}$)]]           |
-| [[#2. Error Analysis & Stability]]                                   |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Matrix Norms & Condition Number]]         |
-| [[#3. Sparse Matrices]]                                              |
-| [[#4. Iterative Methods]]                                            |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Jacobi Method (Simultaneous Update)]]     |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Gauss-Seidel Method (Successive Update)]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Convergence Criteria]]                    |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Relaxation]]                              |
+| Topic |
+| :--- |
+| [[#1. Direct Methods]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Gaussian Elimination]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Pivoting Strategies]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#LU Decomposition]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#The Inverse Matrix ($A^{-1}$)]] |
+| [[#2. Error Analysis & Stability]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Matrix Norms & Condition Number]] |
+| [[#3. Sparse Matrices]] |
+| [[#Iterative Methods]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#General Framework (Fixed-Point Iteration)]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Standard Decomposition]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Deriving the Matrix $G$ (Two Equivalent Forms)]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#**A. Jacobi Method**]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#**B. Gauss-Seidel Method**]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Convergence Criteria]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#**Condition 1: Spectral Radius (Necessary & Sufficient)**]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#**Condition 2: Diagonal Dominance (Sufficient)**]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Summary Table]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Relaxation]] |
 
 > [!ABSTRACT] Chapter Overview 
 > This note covers the numerical resolution of linear systems $Ax=b$. It contrasts **direct methods** (Gaussian elimination, LU) with **iterative methods** (Jacobi, Gauss-Seidel), analyzes computational complexity, and discusses numerical stability through **conditioning**.
@@ -102,9 +107,9 @@ $$\kappa(A) = ||A|| \cdot ||A^{-1}||$$
     
 - **Interpretation:**
     
-    - **Well-conditioned (**$\kappa \approx 1$**):** Stable. Small errors in data yield small errors in the solution.
+    - **Well-conditioned:** Stable. Small errors in data yield small errors in the solution.
         
-    - **Ill-conditioned (**$\kappa \gg 1$**):** Unstable. Tiny errors (like roundoff or measurement noise) can result in massive errors in the final solution.
+    - **Ill-conditioned :** Unstable. Tiny errors (like roundoff or measurement noise) can result in massive errors in the final solution.
         
 - **The Residual Trap:** For ill-conditioned systems, a small residual ($r = b - Ax \approx 0$) does **not** guarantee that the computed $x$ is close to the true solution.
     
@@ -122,8 +127,6 @@ $$\kappa(A) = ||A|| \cdot ||A^{-1}||$$
 
 A matrix is **sparse** if it contains mostly zeros (e.g., Internet adjacency matrix).
 
-- **Storage:** Storing all $n^2$ elements is wasteful. Use formats like **Compressed Column Storage (CCS)** (stores values, row indices, and column pointers).
-    
 - **Operation:** Matrix-vector multiplication ($Av$) is very cheap for sparse matrices.
     
 
@@ -131,55 +134,102 @@ A matrix is **sparse** if it contains mostly zeros (e.g., Internet adjacency mat
 > Gaussian elimination causes **fill-in**:
 >  zero elements become non-zero during row operations. A sparse matrix can become fully dense, destroying memory and speed advantages.
 
-## 4. Iterative Methods
+## Iterative Methods
 
-Iterative methods are preferred for huge, sparse matrices because they avoid fill-in. Instead of solving the system directly, they guess a solution and refine it step-by-step.
+### General Framework (Fixed-Point Iteration)
 
-**Conceptual Approach: Fixed-Point Iteration** We rewrite the system $Ax=b$ into the form $x = G(x)$. To do this, we split the matrix $A$ into a "simple" part $Q$ (easy to invert) and the rest ($Q-A$).
+To solve $Ax = b$, we rewrite the system by introducing a matrix $Q$ (easy to invert) to create a fixed-point form.
 
-$$Ax = b \implies Qx = (Q-A)x + b$$
+We write $Ax = b$ as:
 
-This gives the iteration formula:
+$$Qx = Qx - Ax + b$$$$Qx = (Q - A)x + b$$
+
+This leads to the **iteration formula**:
 
 $$x^{(k+1)} = Q^{-1}((Q-A)x^{(k)} + b)$$
 
-### Jacobi Method (Simultaneous Update)
+This fits the general form $x^{(k+1)} = G x^{(k)} + c$, where:
 
-**Logic:** We isolate $x_i$ in the $i$-th equation. To solve for $x_i^{(k+1)}$, we use the "old" values $x^{(k)}$ for _all_ other variables. All variables are updated simultaneously at the end of the step.
-
-- **Matrix Choice:** $Q = D$ (Diagonal of A).
+- $G = Q^{-1}(Q-A) = I - Q^{-1}A$ is the **Iteration Matrix**.
     
-- **Explicit Update:**
-    
-    $$x_i^{(k+1)} = \frac{1}{a_{ii}} \left( b_i - \sum_{j \neq i} a_{ij} x_j^{(k)} \right)$$
-- **Pros:** Highly parallelizable (each $x_i$ can be computed independently).
+- $c = Q^{-1}b$ is the constant vector.
     
 
-### Gauss-Seidel Method (Successive Update)
+### Standard Decomposition
 
-**Logic:** Like Jacobi, we isolate $x_i$ in the $i$-th equation. However, we use the **most recent** information available. For variables $x_1$ through $x_{i-1}$, we have already computed their new values for step $k+1$, so we use them immediately.
+For a matrix $A$, we define (Slide 89):
 
-- **Matrix Choice:** $Q = L+D$ (Lower triangle of A).
+- $D$: Diagonal part.
     
-- **Explicit Update:**
+- $L$: Strictly Lower triangular part.
     
-    $$x_i^{(k+1)} = \frac{1}{a_{ii}} \left( b_i - \underbrace{\sum_{j < i} a_{ij} x_j^{(k+1)}}_{\text{New values}} - \underbrace{\sum_{j > i} a_{ij} x_j^{(k)}}_{\text{Old values}} \right)$$
-- **Pros:** Generally converges faster than Jacobi because information propagates immediately.
+- $U$: Strictly Upper triangular part.
     
+
+$$A = L + D + U$$
+
+### Deriving the Matrix $G$ (Two Equivalent Forms)
+
+### **A. Jacobi Method**
+
+- **Matrix Choice:** $Q = D$ (Diagonal only).
+    
+
+**Form 1: Using the remainder (Q-A)**
+
+$$G_{Jac} = Q^{-1}(Q-A) = D^{-1}\left[ -(L+U) \right] = -D^{-1}(L+U)$$
+
+**Form 2: Using the Identity (**$I - Q^{-1}A$**)**
+
+$$G_{Jac} = I - D^{-1}A$$
+
+_(Use this form if asked to compute "I minus D inverse A")_
+
+### **B. Gauss-Seidel Method**
+
+- **Matrix Choice:** $Q = L + D$ (Lower Triangle + Diagonal).
+    
+
+**Form 1: Using the remainder (Q-A)**
+
+$$G_{GS} = Q^{-1}(Q-A) = (L+D)^{-1}\left[ -U \right] = -(L+D)^{-1}U$$
+
+**Form 2: Using the Identity (**$I - Q^{-1}A$**)**
+
+$$G_{GS} = I - (L+D)^{-1}A$$
+
+_(Use this form to find eigenvalues generally)_
 
 ### Convergence Criteria
 
-The error $e^{(k)} = x^{(k)} - x$ evolves as $e^{(k+1)} = (I - Q^{-1}A)e^{(k)}$.
+Convergence depends entirely on the properties of $G$. The error vector $e^{(k)} = x^{(k)} - x$ evolves as $e^{(k+1)} = G e^{(k)}$.
 
-> [!check]
-> 
-> Convergence Conditions
-> 
-> 1. **Necessary & Sufficient:** The method converges if and only if the **spectral radius** $\rho(I - Q^{-1}A) < 1$ (all eigenvalues have magnitude < 1).
->     
-> 2. **Sufficient Condition:** If $A$ is **strictly diagonally dominant** (the absolute value of the diagonal element is greater than the sum of absolute values of other row elements), both Jacobi and Gauss-Seidel converge.
->     
+### **Condition 1: Spectral Radius (Necessary & Sufficient)**
 
+The method converges for **any** initial vector $x^{(0)}$ if and only if the spectral radius of $G$ is strictly less than 1.
+
+$$\rho(G) < 1$$
+
+- $\rho(G) = \max_i |\lambda_i(G)|$ (The largest absolute eigenvalue of G).
+    
+- **To test convergence:** Calculate eigenvalues of $G$ by solving $\det(G - \lambda I) = 0$.
+    
+
+### **Condition 2: Diagonal Dominance (Sufficient)**
+
+If $A$ is strictly diagonally dominant, then $\rho(G) < 1$ automatically for both methods.
+
+$$|a_{ii}| > \sum_{j \neq i} |a_{ij}|$$
+
+- _Note:_ If this fails, the method might still converge. You **must** check Condition 1.
+    
+
+### Summary Table
+
+| Method           | Splitting Matrix $Q$ | Iteration Matrix $G$ | Practical Algorithm (Scalar)                 |
+| ---------------- | -------------------- | -------------------- | -------------------------------------------- |
+| **Jacobi**       | $D$                  | $I - D^{-1}A$        | Use $x^{(k)}$ to compute entire $x^{(k+1)}$. |
+| **Gauss-Seidel** | $L+D$                | $I - (L+D)^{-1}A$    | Use new $x_j^{(k+1)}$ as soon as available.  |
 ### Relaxation
 
 - Introduce a parameter $\omega$ to speed up convergence (Over-relaxation, $\omega > 1$) or stabilize divergence (Under-relaxation, $\omega < 1$).
