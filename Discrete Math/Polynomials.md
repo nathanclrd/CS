@@ -1,37 +1,36 @@
-
-| Topic                                                                                |
-| :----------------------------------------------------------------------------------- |
-| [[#1. Formal Polynomials]]                                                           |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Basic Definitions]]                                       |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Operations on $\mathbb{K}[X]$]]                           |
-| [[#2. Euclidean Division]]                                                           |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Theorem and Algorithm]]                                   |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Divisibility]]                                            |
-| [[#3. GCD and Arithmetic]]                                                           |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#GCD (Greatest Common Divisor)]]                           |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Euclid's Algorithm & Bézout]]                             |
-| [[#4. Polynomial Functions and Roots]]                                               |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Evaluation]]                                              |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Zeros (Roots)]]                                           |
-| [[#5. Formal Differentiation]]                                                       |
-| [[#6. Fundamental Theorem of Algebra (FTA)]]                                         |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Consequences (Corollaries)]]                              |
-| [[#7. Polynomials with Real Coefficients]]                                           |
-| [[#1. Opérations et Degré]]                                                          |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Intégrité de $\mathbb{K}[X]$]]                            |
-| [[#2. Division Euclidienne]]                                                         |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Théorème d'Existence et d'Unicité]]                       |
-| [[#3. Arithmétique des Polynômes]]                                                   |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Théorème de Gauss]]                                       |
-| [[#4. Dérivées et Taylor]]                                                           |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Formule de Taylor]]                                       |
-| [[#5. Zéros et Fonctions Polynomiales]]                                              |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Caractérisation des Zéros]]                               |
+| Topic |
+| :--- |
+| [[#1. Formal Polynomials]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Basic Definitions]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Operations on $\mathbb{K}[X]$]] |
+| [[#2. Euclidean Division]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Theorem and Algorithm]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Divisibility]] |
+| [[#3. GCD and Arithmetic]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#GCD (Greatest Common Divisor)]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Euclid's Algorithm & Bézout]] |
+| [[#4. Polynomial Functions and Roots]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Evaluation]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Zeros (Roots)]] |
+| [[#5. Formal Differentiation]] |
+| [[#6. Fundamental Theorem of Algebra (FTA)]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Consequences (Corollaries)]] |
+| [[#7. Polynomials with Real Coefficients]] |
+| [[#1. Opérations et Degré]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Intégrité de $\mathbb{K}[X]$]] |
+| [[#2. Division Euclidienne]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Théorème d'Existence et d'Unicité]] |
+| [[#3. Arithmétique des Polynômes]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Théorème de Gauss]] |
+| [[#4. Dérivées et Taylor]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Formule de Taylor]] |
+| [[#5. Zéros et Fonctions Polynomiales]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Caractérisation des Zéros]] |
 | &nbsp;&nbsp;&nbsp;&nbsp;[[#Conséquences du Théorème Fondamental de l'Algèbre (TFA)]] |
-| [[#6. Cas Réel ($\mathbb{R}[X]$)]]                                                   |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Zéros conjugués]]                                         |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Produit de facteurs conjugués]]                           |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Factorisation dans $\mathbb{R}[X]$]]                      |
+| [[#6. Cas Réel ($\mathbb{R}[X]$)]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Zéros conjugués]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Produit de facteurs conjugués]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Factorisation dans $\mathbb{R}[X]$]] |
 
 # Synthesis: Polynomials ($\mathbb{K}[X]$)
 

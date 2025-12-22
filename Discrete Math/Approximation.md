@@ -11,6 +11,8 @@
 | &nbsp;&nbsp;&nbsp;&nbsp;[[#Practical Application (Bounding)]] |
 | &nbsp;&nbsp;&nbsp;&nbsp;[[#Useful Formula (Lagrange Error Bound)]] |
 | [[#7. Example: Cosine Function]] |
+| [[#1. Approximation Polynomiale]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Unicité de l'approximation]] |
 
 Tags: #math #analysis #polynomials #taylor
 # Linear Algebra: Approximation
@@ -170,3 +172,68 @@ Error at Order 5:
 Using Taylor-Lagrange, since derivatives of cosine are always $\le 1$ in magnitude:
 
 $$|r_5(x)| \le \frac{1}{6!} \left| x - \frac{\pi}{2} \right|^6$$
+# 8. Démonstrations : Outils d'Analyse
+
+Ce document recense l'unique démonstration formelle du chapitre **Outils d'Analyse** tirée du cours _Mathématiques pour l'informatique 2_.
+
+> [!INFO] Légende
+> 
+> - $f$ désigne une fonction de $A \subseteq \mathbb{R}$ vers $\mathbb{R}$.
+>     
+> - $P$ désigne un polynôme.
+>     
+> - La démonstration est masquée par défaut. **Cliquez sur la flèche pour la révéler.**
+>     
+
+## 1. Approximation Polynomiale
+
+### Unicité de l'approximation
+
+> [!important] Proposition
+> 
+> 1. Si $f$ admet une approximation polynomiale à l'ordre $n$ en $a$, alors celle-ci est **unique**.
+>     
+> 2. Si $f$ admet une approximation polynomiale à l'ordre $n$ en $a$, alors $f$ admet une approximation à l'ordre $i$ en $a$ pour tout $i \le n$.
+>     
+
+> [!example]- Démonstration **Point 1 : Unicité** Supposons que $P \in \mathbb{R}_n[X]$ est une approximation à l'ordre $n$ en $a$. On a $\lim_{x \to a} \frac{f(x) - P(x)}{(x-a)^n} = 0$.
+> 
+> Cela implique que pour tout $i < n$ :
+> 
+> $$\lim_{x \to a} \frac{f(x) - P(x)}{(x-a)^i} = \lim_{x \to a} \left( \frac{f(x) - P(x)}{(x-a)^n} \cdot (x-a)^{n-i} \right) = 0 \cdot 0 = 0$$
+> 
+> Écrivons $P$ dans la base $((X-a)^n, \dots, 1)$ : $P = \sum_{j=0}^n c_j (X-a)^j$. Pour montrer l'unicité de $P$, il suffit de montrer l'unicité des coefficients $c_j$.
+> 
+> Procédons de proche en proche pour $i$ allant de 0 à $n$.
+> 
+> Pour $i=0$ :
+> 
+> $$\lim_{x \to a} (f(x) - P(x)) = 0 \implies \lim_{x \to a} (f(x) - c_0) = 0 \implies c_0 = \lim_{x \to a} f(x)$$
+> 
+> $c_0$ est déterminé de manière unique par $f$.
+> 
+> Supposons $c_0, \dots, c_{i-1}$ déterminés de manière unique. On sait que $\lim_{x \to a} \frac{f(x) - P(x)}{(x-a)^i} = 0$. Or $P(x) = \sum_{j=0}^{i-1} c_j(x-a)^j + c_i(x-a)^i + \sum_{j=i+1}^n c_j(x-a)^j$.
+> 
+> Donc :
+> 
+> $$\frac{f(x) - P(x)}{(x-a)^i} = \frac{f(x) - \sum_{j=0}^{i-1} c_j(x-a)^j}{(x-a)^i} - c_i - \sum_{j=i+1}^n c_j(x-a)^{j-i}$$
+> 
+> En passant à la limite $x \to a$, les termes de la somme pour $j > i$ tendent vers 0 (car $(x-a)^{j-i} \to 0$). On obtient :
+> 
+> $$0 = \lim_{x \to a} \frac{f(x) - \sum_{j=0}^{i-1} c_j(x-a)^j}{(x-a)^i} - c_i$$
+> 
+> D'où :
+> 
+> $$c_i = \lim_{x \to a} \frac{f(x) - \sum_{j=0}^{i-1} c_j(x-a)^j}{(x-a)^i}$$
+> 
+> Le coefficient $c_i$ est donc déterminé de manière unique par $f$ et les coefficients précédents (déjà uniques).
+> 
+> **Point 2 : Existence aux ordres inférieurs** On a vu dans la preuve précédente que si $\lim_{x \to a} \frac{f(x) - P(x)}{(x-a)^n} = 0$, alors pour tout $i \le n$, $\lim_{x \to a} \frac{f(x) - P(x)}{(x-a)^i} = 0$.
+> 
+> Considérons le polynôme tronqué $P_i(X) = \sum_{j=0}^i c_j(X-a)^j$. On a :
+> 
+> $$\frac{f(x) - P_i(x)}{(x-a)^i} = \frac{f(x) - P(x)}{(x-a)^i} + \frac{P(x) - P_i(x)}{(x-a)^i}$$
+> 
+> Le premier terme tend vers 0. Le second terme est $\frac{\sum_{j=i+1}^n c_j(x-a)^j}{(x-a)^i} = \sum_{j=i+1}^n c_j(x-a)^{j-i}$, qui tend aussi vers 0 quand $x \to a$.
+> 
+> Donc $P_i$ est bien une approximation de $f$ à l'ordre $i$.
