@@ -53,7 +53,8 @@ $$\begin{cases} x'(t) = f(x(t), t) \\ x(t_0) = x_0 \end{cases}$$
 
 Before choosing a numerical method, one must understand the stability of the equation itself. Stability concerns what a small perturbation in the initial condition implies for the solution.
 
-> [!abstract] **Definition: Local Stability** A differential equation $x'(t) = f(x(t), t)$ is:
+> [!abstract] **Definition: Local Stability** 
+> A differential equation $x'(t) = f(x(t), t)$ is:
 > 
 > - **Stable** locally at $(x(t), t)$ if the Jacobian $J(x(t), t) = \frac{\partial f}{\partial x} < 0$.
 >     
@@ -87,7 +88,8 @@ $$EG_i = (1 + hJ_i)EG_{i-1} + EL_i$$
 
 For the error not to grow, we generally need $|1 + hJ_i| < 1$.
 
-> [!fail] **Stability Constraint** For a stable equation ($J < 0$), the Explicit Euler method is stable only if the step size $h$ satisfies:
+> [!fail] **Stability Constraint** 
+> For a stable equation ($J < 0$), the Explicit Euler method is stable only if the step size $h$ satisfies:
 > 
 > $$-2 < hJ_i < 0$$
 

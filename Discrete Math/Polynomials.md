@@ -216,7 +216,8 @@ Although $\mathbb{R} \subset \mathbb{C}$, polynomials in $\mathbb{R}[X]$ have sp
 > [!theorem] Conjugate Roots
 >  If $P \in \mathbb{R}[X]$ and if $c \in \mathbb{C}$ is a root of $P$, then its conjugate $\bar{c}$ is also a root of $P$ with the same multiplicity. (This only works in $\mathbb{C}$)
 
-> [!summary] Factorization in $\mathbb{R}[X]$ Every polynomial in $\mathbb{R}[X]$ decomposes into a product:
+> [!summary] Factorization in $\mathbb{R}[X]$ 
+> Every polynomial in $\mathbb{R}[X]$ decomposes into a product:
 > 
 > - Of degree 1 factors: $(X - r_i)$ (real roots).
 >     
@@ -240,7 +241,8 @@ Ce document recense les démonstrations du chapitre sur les polynômes ($\mathbb
 
 ### Intégrité de $\mathbb{K}[X]$
 
-> [!important] Corollaire : Intégrité Si $P, Q \in \mathbb{K}[X]$ sont tels que $P \cdot Q = 0$, alors $P=0$ ou $Q=0$.
+> [!important] Corollaire : Intégrité 
+> Si $P, Q \in \mathbb{K}[X]$ sont tels que $P \cdot Q = 0$, alors $P=0$ ou $Q=0$.
 
 > [!example]- Démonstration Nous procédons par la **contraposée**.
 > 
@@ -260,11 +262,13 @@ Ce document recense les démonstrations du chapitre sur les polynômes ($\mathbb
 
 ### Théorème d'Existence et d'Unicité
 
-> [!important] Théorème : Division Euclidienne Pour tous polynômes $P, D \in \mathbb{K}[X]$ avec $D \neq 0$, il existe des polynômes **uniques** $Q, R \in \mathbb{K}[X]$ tels que :
+> [!important] Théorème : Division Euclidienne 
+> Pour tous polynômes $P, D \in \mathbb{K}[X]$ avec $D \neq 0$, il existe des polynômes **uniques** $Q, R \in \mathbb{K}[X]$ tels que :
 > 
 > $$P = Q \cdot D + R \quad \text{et} \quad \deg(R) < \deg(D)$$
 
-> [!example]- Démonstration de l'Existence On procède par **récurrence sur le degré de** $P$.
+> [!example]- Démonstration de l'Existence 
+> On procède par **récurrence sur le degré de** $P$.
 > 
 > **Cas de base :** Si $\deg(P) < \deg(D)$, il suffit de choisir $Q=0$ et $R=P$. La condition sur le degré est satisfaite.
 > 
@@ -284,7 +288,8 @@ Ce document recense les démonstrations du chapitre sur les polynômes ($\mathbb
 > 
 > En posant $Q = Q' + \frac{p}{d} X^{\deg(P)-\deg(D)}$ et $R = R'$, on a bien $P = QD + R$ avec la condition de degré sur $R$ respectée.
 
-> [!example]- Démonstration de l'Unicité Supposons qu'il existe deux couples $(Q_1, R_1)$ et $(Q_2, R_2)$ tels que :
+> [!example]- Démonstration de l'Unicité
+Supposons qu'il existe deux couples $(Q_1, R_1)$ et $(Q_2, R_2)$ tels que :
 > 
 > 1. $P = Q_1 D + R_1$ avec $\deg(R_1) < \deg(D)$
 >     
@@ -330,7 +335,8 @@ Ce document recense les démonstrations du chapitre sur les polynômes ($\mathbb
 
 ### Formule de Taylor
 
-> [!important] Formule de Taylor (pour $\mathbb{K} = \mathbb{C}, \mathbb{R}$ ou $\mathbb{Q}$) Pour tout $P \in \mathbb{K}[X]$ et tout $k \in \mathbb{K}$ :
+> [!important] Formule de Taylor (pour $\mathbb{K} = \mathbb{C}, \mathbb{R}$ ou $\mathbb{Q}$) 
+> Pour tout $P \in \mathbb{K}[X]$ et tout $k \in \mathbb{K}$ :
 > 
 > $$P = \sum_{i=0}^{\deg(P)} \frac{D^i P(k)}{i!} (X-k)^i$$
 
@@ -356,9 +362,11 @@ Ce document recense les démonstrations du chapitre sur les polynômes ($\mathbb
 
 ### Caractérisation des Zéros
 
-> [!important] Proposition $k$ est un zéro de $P$ si et seulement si $P(k) = 0$.
+> [!important] Proposition 
+> $k$ est un zéro de $P$ si et seulement si $P(k) = 0$.
 
-> [!example]- Démonstration Effectuons la division euclidienne de $P$ par $(X-k)$ (polynôme de degré 1).
+> [!example]- Démonstration 
+> Effectuons la division euclidienne de $P$ par $(X-k)$ (polynôme de degré 1).
 > 
 > $$P = Q(X-k) + R \quad \text{avec} \quad \deg(R) < 1$$
 > 
@@ -375,7 +383,8 @@ Ce document recense les démonstrations du chapitre sur les polynômes ($\mathbb
 
 ### Conséquences du Théorème Fondamental de l'Algèbre (TFA)
 
-> [!important] Corollaire 1 : Mêmes zéros Deux polynômes de $\mathbb{K}[X]$ ($\mathbb{K} = \mathbb{C}, \mathbb{R}, \mathbb{Q}$) ayant les mêmes zéros complexes avec les mêmes multiplicités sont **égaux à une constante multiplicative près**.
+> [!important] Corollaire 1 : Mêmes zéros 
+> Deux polynômes de $\mathbb{K}[X]$ ($\mathbb{K} = \mathbb{C}, \mathbb{R}, \mathbb{Q}$) ayant les mêmes zéros complexes avec les mêmes multiplicités sont **égaux à une constante multiplicative près**.
 
 > [!example]- Démonstration
 > 
@@ -386,9 +395,11 @@ Ce document recense les démonstrations du chapitre sur les polynômes ($\mathbb
 > - Si les deux sont non nuls : Cela découle directement de la forme factorisée donnée par le TFA : $P = p \prod (X-k_i)^{\alpha_i}$ et $Q = q \prod (X-k_i)^{\alpha_i}$. Donc $P = \frac{p}{q} Q$.
 >     
 
-> [!important] Corollaire 2 : Égalité sur $d+1$ points Deux polynômes de degré $d$ prenant les mêmes valeurs en $d+1$ arguments sont **égaux**.
+> [!important] Corollaire 2 : Égalité sur $d+1$ points 
+> Deux polynômes de degré $d$ prenant les mêmes valeurs en $d+1$ arguments sont **égaux**.
 
-> [!example]- Démonstration Soient $P$ et $Q$ deux polynômes tels que $\deg(P) \le d$, $\deg(Q) \le d$ et $P(x_i) = Q(x_i)$ pour $d+1$ points distincts.
+> [!example]- Démonstration 
+> Soient $P$ et $Q$ deux polynômes tels que $\deg(P) \le d$, $\deg(Q) \le d$ et $P(x_i) = Q(x_i)$ pour $d+1$ points distincts.
 > 
 > Considérons le polynôme différence $D = P - Q$.
 > 
@@ -399,17 +410,21 @@ Ce document recense les démonstrations du chapitre sur les polynômes ($\mathbb
 > 
 > Si $D$ n'était pas nul, il aurait au plus $\deg(D) \le d$ zéros (par le TFA ou ses conséquences). Or il en a $d+1$. C'est une contradiction. Donc $D = 0$, soit $P = Q$.
 
-> [!important] Corollaire 3 : Polynôme vs Fonction Deux polynômes sont égaux si et seulement si leurs fonctions polynomiales induites sont égales.
+> [!important] Corollaire 3 : Polynôme vs Fonction 
+> Deux polynômes sont égaux si et seulement si leurs fonctions polynomiales induites sont égales.
 
-> [!example]- Démonstration ($\Rightarrow$) Immédiat. ($\Leftarrow$) Si les fonctions sont égales, elles prennent la même valeur partout sur $\mathbb{K}$. Comme $\mathbb{K}$ ($\mathbb{R}, \mathbb{C}, \mathbb{Q}$) contient une infinité de points, les polynômes coïncident sur une infinité de points. Le polynôme différence $P-Q$ a donc une infinité de zéros. Le seul polynôme ayant une infinité de zéros est le polynôme nul. Donc $P=Q$.
+> [!example]- Démonstration 
+> ($\Rightarrow$) Immédiat. ($\Leftarrow$) Si les fonctions sont égales, elles prennent la même valeur partout sur $\mathbb{K}$. Comme $\mathbb{K}$ ($\mathbb{R}, \mathbb{C}, \mathbb{Q}$) contient une infinité de points, les polynômes coïncident sur une infinité de points. Le polynôme différence $P-Q$ a donc une infinité de zéros. Le seul polynôme ayant une infinité de zéros est le polynôme nul. Donc $P=Q$.
 
 ## 6. Cas Réel ($\mathbb{R}[X]$)
 
 ### Zéros conjugués
 
-> [!important] Lemme 1 Si $P \in \mathbb{R}[X]$ et si $c \in \mathbb{C}$ est un zéro de $P$, alors son conjugué $\bar{c}$ est aussi un zéro de $P$.
+> [!important] Lemme 1 
+> Si $P \in \mathbb{R}[X]$ et si $c \in \mathbb{C}$ est un zéro de $P$, alors son conjugué $\bar{c}$ est aussi un zéro de $P$.
 
-> [!example]- Démonstration Soit $P = \sum p_i X^i$ avec $p_i \in \mathbb{R}$. Supposons $P(c) = 0$.
+> [!example]- Démonstration
+>  Soit $P = \sum p_i X^i$ avec $p_i \in \mathbb{R}$. Supposons $P(c) = 0$.
 > 
 > Calculons $P(\bar{c})$ :
 > 
@@ -423,9 +438,11 @@ Ce document recense les démonstrations du chapitre sur les polynômes ($\mathbb
 
 ### Produit de facteurs conjugués
 
-> [!important] Lemme 2 Pour tout $c \in \mathbb{C}$, le polynôme $(X-c)(X-\bar{c})$ appartient à $\mathbb{R}[X]$.
+> [!important] Lemme 2 
+> Pour tout $c \in \mathbb{C}$, le polynôme $(X-c)(X-\bar{c})$ appartient à $\mathbb{R}[X]$.
 
-> [!example]- Démonstration Posons $c = a + ib$ avec $a, b \in \mathbb{R}$.
+> [!example]- Démonstration 
+> Posons $c = a + ib$ avec $a, b \in \mathbb{R}$.
 > 
 > $$(X-c)(X-\bar{c}) = X^2 - (c + \bar{c})X + c\bar{c}$$
 > 
@@ -440,7 +457,8 @@ Ce document recense les démonstrations du chapitre sur les polynômes ($\mathbb
 
 ### Factorisation dans $\mathbb{R}[X]$
 
-> [!important] Proposition Tout polynôme de $\mathbb{R}[X]$ se factorise en produit de polynômes de degré 1 et de polynômes de degré 2 à discriminant négatif.
+> [!important] Proposition 
+> Tout polynôme de $\mathbb{R}[X]$ se factorise en produit de polynômes de degré 1 et de polynômes de degré 2 à discriminant négatif.
 
 > [!example]- Démonstration
 > 

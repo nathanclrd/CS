@@ -38,11 +38,13 @@ Ce document recense les démonstrations du chapitre sur les **Espaces Vectoriels
 > 2. Soient $x_1, ..., x_n$ des vecteurs linéairement indépendants et $e$ un vecteur. Les vecteurs $x_1, ..., x_n, e$ sont linéairement dépendants si et seulement si $e \in \rangle x_1, ..., x_n \langle$.
 >     
 
-> [!example]- Démonstration (Point 1) **(**$\Leftarrow$**)** Le vecteur $0$ est linéairement dépendant car on peut écrire la combinaison linéaire non triviale : $1 \cdot 0 = 0$.
+> [!example]- Démonstration 
+> (Point 1) **(**$\Leftarrow$**)** Le vecteur $0$ est linéairement dépendant car on peut écrire la combinaison linéaire non triviale : $1 \cdot 0 = 0$.
 > 
 > **(**$\Rightarrow$**)** Si $e$ est linéairement dépendant, il existe un scalaire $k \in \mathbb{K}$ **non nul** tel que $k \cdot e = 0$. Comme on est dans un corps, cela implique $k=0$ ou $e=0$. Puisque $k \neq 0$, on a nécessairement $e=0$.
 
-> [!example]- Démonstration (Point 2) **(**$\Leftarrow$**)** Si $e$ est combinaison linéaire des $x_i$, on écrit $e = \sum k_i x_i$. Alors $\sum k_i x_i + (-1)e = 0$. C'est une combinaison linéaire nulle avec au moins un coefficient non nul ($-1$), donc la famille est liée.
+> [!example]- Démonstration 
+> (Point 2) **(**$\Leftarrow$**)** Si $e$ est combinaison linéaire des $x_i$, on écrit $e = \sum k_i x_i$. Alors $\sum k_i x_i + (-1)e = 0$. C'est une combinaison linéaire nulle avec au moins un coefficient non nul ($-1$), donc la famille est liée.
 > 
 > **(**$\Rightarrow$**)** Supposons qu'il existe une relation de dépendance :
 > 
@@ -60,9 +62,11 @@ Ce document recense les démonstrations du chapitre sur les **Espaces Vectoriels
 
 ### 2. Structure de SEV
 
-> [!important] Proposition Un sous-espace vectoriel $F$ de $E$ (muni des opérations induites) est un espace vectoriel.
+> [!important] Proposition
+>  Un sous-espace vectoriel $F$ de $E$ (muni des opérations induites) est un espace vectoriel.
 
-> [!example]- Démonstration Soit $F$ un SEV de $E$.
+> [!example]- Démonstration 
+> Soit $F$ un SEV de $E$.
 > 
 > 1. **Opérations internes** : Par définition d'un SEV, l'addition et la multiplication scalaire sont stables (internes) à $F$.
 >     
@@ -191,7 +195,7 @@ Ce document recense les démonstrations du chapitre sur les **Espaces Vectoriels
 > 
 > 1. La $j$-ème colonne de $\mathcal{M}(B, B'')$ est, par définition, le vecteur des composantes de $b_j$ dans la base $B''$ : $\Psi_{B''}(b_j)$.
 >     
-> 2. Regardons le produit matriciel à droite. La $j$-ème colonne est : $\mathcal{M}(B', B'') \times (\text{$j$-ème colonne de } \mathcal{M}(B, B'))$ $= \mathcal{M}(B', B'') \times \Psi_{B'}(b_j)$.
+> 2. Regardons le produit matriciel à droite. La $j$-ème colonne est :$$\mathcal{M}(B', B'') \cdot (\text{$j$-ème colonne de } \mathcal{M}(B, B')) = \mathcal{M}(B', B'') \, \Psi_{B'}(b_j)$$
 >     
 > 3. Or, la formule de changement de base dit que pour tout vecteur $v$ (ici $v=b_j$) : $\Psi_{B''}(v) = \mathcal{M}(B', B'') \Psi_{B'}(v)$.
 >     

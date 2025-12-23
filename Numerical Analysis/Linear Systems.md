@@ -1,24 +1,24 @@
-| Topic |
-| :--- |
-| [[#1. Direct Methods]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Gaussian Elimination]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Pivoting Strategies]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#LU Decomposition]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#The Inverse Matrix ($A^{-1}$)]] |
-| [[#2. Error Analysis & Stability]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Matrix Norms & Condition Number]] |
-| [[#3. Sparse Matrices]] |
-| [[#Iterative Methods]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#General Framework (Fixed-Point Iteration)]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Standard Decomposition]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Deriving the Matrix $G$ (Two Equivalent Forms)]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#**A. Jacobi Method**]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#**B. Gauss-Seidel Method**]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Convergence Criteria]] |
+| Topic                                                                                  |
+| :------------------------------------------------------------------------------------- |
+| [[#1. Direct Methods]]                                                                 |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Gaussian Elimination]]                                      |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Pivoting Strategies]]                                       |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#LU Decomposition]]                                          |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#The Inverse Matrix ($A^{-1}$)]]                             |
+| [[#2. Error Analysis & Stability]]                                                     |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Matrix Norms & Condition Number]]                           |
+| [[#3. Sparse Matrices]]                                                                |
+| [[#Iterative Methods]]                                                                 |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#General Framework (Fixed-Point Iteration)]]                 |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Standard Decomposition]]                                    |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Deriving the Matrix $G$ (Two Equivalent Forms)]]            |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#**A. Jacobi Method**]]                                      |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#**B. Gauss-Seidel Method**]]                                |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Convergence Criteria]]                                      |
 | &nbsp;&nbsp;&nbsp;&nbsp;[[#**Condition 1: Spectral Radius (Necessary & Sufficient)**]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#**Condition 2: Diagonal Dominance (Sufficient)**]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Summary Table]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Relaxation]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#**Condition 2: Diagonal Dominance (Sufficient)**]]          |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Summary Table]]                                             |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Relaxation]]                                                |
 
 > [!ABSTRACT] Chapter Overview 
 > This note covers the numerical resolution of linear systems $Ax=b$. It contrasts **direct methods** (Gaussian elimination, LU) with **iterative methods** (Jacobi, Gauss-Seidel), analyzes computational complexity, and discusses numerical stability through **conditioning**.
@@ -74,7 +74,8 @@ Factorize matrix $A$ into a lower triangular matrix $L$ and an upper triangular 
 
 ### The Inverse Matrix ($A^{-1}$)
 
-> [!DANGER] Critical Rule **Never** compute the inverse of a matrix explicitly!
+> [!DANGER] Critical Rule 
+> **Never** compute the inverse of a matrix explicitly!
 > 
 > - Computing $A^{-1}$ is computationally expensive ($\approx \frac{5}{3}n^3$ or more).
 >     

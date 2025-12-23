@@ -2,5 +2,6 @@
   "minimal-advanced@@animations": "default",
   "minimal-style@@pdf-invert-dark": false,
   "minimal-style@@pdf-page-style": "pdf-seamless-on",
-  "minimal-style@@pdf-blend-light": true
+  "minimal-style@@pdf-blend-light": true,
+  "minimal-style@@image-muted": 1
 }
