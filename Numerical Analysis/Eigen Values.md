@@ -1,161 +1,131 @@
-| Topic |
-| :--- |
-| [[#1. La Méthode de la Bissection (Dichotomie)]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#💡 L'idée intuitive]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#⚙️ L'Algorithme]] |
-| [[#2. La Méthode de Newton-Raphson]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#💡 L'idée intuitive]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#📝 La Formule à retenir]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#⚙️ L'Algorithme]] |
-| [[#3. La Méthode de la Sécante]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#💡 L'idée intuitive]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#📝 La Formule]] |
-| [[#4. La Méthode du Point Fixe]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#💡 L'idée intuitive]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#📝 La Formule]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#⚠️ Condition de vie ou de mort (Convergence)]] |
-| [[#🏆 Tableau Récapitulatif : Que choisir ?]] |
 
-# Chapitre 4 : Résolution d'Équations Non Linéaires (Synthèse Clarifiée)
+| Topic                                                           |
+| :-------------------------------------------------------------- |
+| [[#1. La Méthode de la Puissance]]                              |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#💡 L'idée intuitive]]                |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#📝 L'Algorithme]]                    |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#⚠️ Convergence]]                     |
+| [[#2. La Méthode de la Puissance Inverse]]                      |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#💡 L'idée intuitive]]                |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#⚙️ En pratique (Astuce importante)]] |
+| [[#3. Le "Shift" (Décalage Spectral)]]                          |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#💡 L'idée intuitive]]                |
+| [[#4. Calculer les _autres_ valeurs propres (Déflation)]]       |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Pour les matrices symétriques]]      |
+| [[#5. L'Algorithme QR]]                                         |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#💡 L'idée intuitive]]                |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#📝 L'Algorithme]]                    |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#✨ Le Résultat Magique]]              |
+
+# Chapitre : Calcul Numérique des Valeurs Propres
 
 > [!summary] Le problème en bref 
-> On cherche un nombre $x$ (appelé **racine**) qui annule une fonction :
+> On cherche à trouver les scalaires $\lambda$ (valeurs propres) et les vecteurs non nuls $v$ (vecteurs propres) tels que :
 > 
-> $$f(x) = 0$$
+> $$Av = \lambda v$$
 > 
-> Comme on ne peut pas toujours isoler $x$ à la main (ex: $x = \cos(x)$), on utilise des méthodes numériques qui s'approchent de la solution étape par étape.
+> **Pourquoi est-ce difficile ?** Contrairement aux systèmes linéaires ($Ax=b$), on ne peut pas isoler l'inconnue facilement. L'approche théorique (calculer le déterminant $\det(A-\lambda I) = 0$ pour trouver le polynôme caractéristique) est **instable et trop coûteuse** pour les grandes matrices ($N > 4$). On utilise donc des méthodes itératives.
 
-## 1. La Méthode de la Bissection (Dichotomie)
+## 1. La Méthode de la Puissance
 
-_L'approche "brute mais fiable"._
+_L'approche "bourrin mais efficace" pour le plus grand élément._
 
 ### 💡 L'idée intuitive
 
-Imaginez que vous cherchez un mot dans un dictionnaire. Vous ouvrez au milieu. Si le mot est avant, vous oubliez la seconde moitié et vous recommencez avec la première. On "coupe en deux" l'intervalle indéfiniment.
+Si on multiplie un vecteur arbitraire $w$ par la matrice $A$ encore et encore ($A \cdot A \cdot A \dots w$), le vecteur résultant va finir par s'aligner avec la direction qui "dilate" le plus l'espace : celle correspondant à la valeur propre la plus grande en valeur absolue ($|\lambda_{max}|$).
 
-### ⚙️ L'Algorithme
+### 📝 L'Algorithme
 
-1. **Départ** : Choisir deux points $a$ et $b$ qui encadrent la racine (la fonction doit changer de signe : $f(a)$ et $f(b)$ sont de signes opposés).
+1. **Départ** : Choisir un vecteur initial $w^{(0)}$ (au hasard).
     
-2. **Milieu** : Calculer le centre $m = \frac{a+b}{2}$.
+2. **Itération** :
     
-3. **Test** :
-    
-    - Si $f(a)$ et $f(m)$ ont le même signe $\rightarrow$ la racine est dans l'autre moitié $[m, b]$. On remplace $a$ par $m$.
+    - Multiplier : $w^{(k)} = A w^{(k-1)}$
         
-    - Sinon $\rightarrow$ la racine est dans $[a, m]$. On remplace $b$ par $m$.
+    - _Normaliser_ (crucial pour éviter que les nombres explosent) : $z^{(k)} = \frac{w^{(k)}}{\|w^{(k)}\|}$
         
-4. **Répéter** jusqu'à ce que l'intervalle soit minuscule.
+3. **Résultat** : La suite converge vers le vecteur propre dominant $v^{(1)}$.
     
+
+### ⚠️ Convergence
+
+La vitesse dépend du ratio $|\lambda_2| / |\lambda_1|$.
+
+- Si $\lambda_1$ est beaucoup plus grand que les autres, ça converge très vite.
+    
+- Si $\lambda_1 \approx \lambda_2$, la méthode rame.
+    
+
+## 2. La Méthode de la Puissance Inverse
+
+_L'approche pour trouver le plus petit élément._
+
+### 💡 L'idée intuitive
+
+Les valeurs propres de l'inverse $A^{-1}$ sont les inverses des valeurs propres de $A$ ($1/\lambda$). La plus _petite_ valeur propre de $A$ devient la plus _grande_ de $A^{-1}$. On applique donc la méthode de la puissance sur $A^{-1}$.
+
+### ⚙️ En pratique (Astuce importante)
+
+On ne calcule **jamais** $A^{-1}$ explicitement (trop cher). Au lieu de calculer $w^{(k+1)} = A^{-1} z^{(k)}$, on résout le système linéaire :
+
+$$A w^{(k+1)} = z^{(k)}$$
+
+(On utilise une décomposition LU de $A$ pour faire cela rapidement à chaque itération).
+
+## 3. Le "Shift" (Décalage Spectral)
+
+_L'approche "ciblage laser"._
+
+### 💡 L'idée intuitive
+
+Si on veut trouver une valeur propre proche d'un nombre $m$ arbitraire, on peut "shifter" la matrice. Les valeurs propres de $A - mI$ sont $\lambda_i - m$. Si on applique la **Puissance Inverse** à $(A - mI)$, on va converger vers la valeur propre pour laquelle $1/(\lambda_i - m)$ est le plus grand, c'est-à-dire celle où $(\lambda_i - m)$ est le plus petit (la plus proche de $m$).
+
+> [!tip] Utilisation 
+> Très utile pour accélérer la convergence si on a déjà une estimation grossière de la valeur propre.
+
+## 4. Calculer les _autres_ valeurs propres (Déflation)
+
+Une fois qu'on a trouvé $\lambda_1$, comment trouver $\lambda_2$ ?
+
+### Pour les matrices symétriques
+
+On "retire" l'influence de $\lambda_1$ de la matrice.
+
+$$A_{nouveau} = A - \lambda_1 v^{(1)} (v^{(1)})^T$$
+
+Cette nouvelle matrice a les mêmes valeurs propres que $A$, sauf $\lambda_1$ qui est remplacée par $0$. La méthode de la puissance convergera alors vers $\lambda_2$.
+
+## 5. L'Algorithme QR
+
+_L'approche "tout-en-un" (Le Saint Graal)._
+
+### 💡 L'idée intuitive
+
+C'est la méthode standard pour trouver **toutes** les valeurs propres d'un coup. Elle est basée sur la factorisation $A = QR$ (Q orthogonale, R triangulaire supérieure).
+
+### 📝 L'Algorithme
+
+On génère une suite de matrices $A_0, A_1, A_2 \dots$
+
+1. **Factoriser** : $A_k = Q_k R_k$
+    
+2. **Recombiner à l'envers** : $A_{k+1} = R_k Q_k$
+    
+
+### ✨ Le Résultat Magique
+
+La matrice $A_k$ converge vers une matrice **triangulaire supérieure** (Forme de Schur). Les **valeurs propres** se lisent alors simplement sur la **diagonale** de cette matrice limite.
 
 > [!check] Points forts
 > 
-> - **Indestructible** : Elle converge **toujours** si on a bien encadré la racine au début.
+> - Très robuste.
 >     
-> - **Simple** : Très facile à comprendre.
+> - Donne tout le spectre (toutes les valeurs propres).
+>     
+> - Préserve la symétrie (si $A$ est symétrique, la limite est diagonale).
 >     
 
 > [!fail] Points faibles
 > 
-> - **Très lente** : Il faut beaucoup d'étapes pour gagner de la précision.
->     
-> - **Aveugle** : Elle n'utilise pas la forme de la courbe, juste le signe.
->     
-
-## 2. La Méthode de Newton-Raphson
-
-_L'approche "formule 1" (rapide mais sensible)._
-
-### 💡 L'idée intuitive
-
-Au lieu de tâtonner, on se place sur la courbe au point $x_n$ et on trace la **tangente**. Là où la tangente coupe l'axe horizontal, c'est notre nouveau point $x_{n+1}$. On "glisse" le long des tangentes vers la solution.
-
-### 📝 La Formule à retenir
-
-$$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$$
-
-### ⚙️ L'Algorithme
-
-1. **Départ** : Choisir un point initial $x_0$ (proche de la racine si possible).
-    
-2. **Calcul** : Appliquer la formule pour trouver le point suivant.
-    
-3. **Répéter** jusqu'à ce que $x$ ne bouge presque plus.
-    
-
-> [!check] Points forts
-> 
-> - **Extrêmement rapide** (Quadratique) : Une fois proche du but, le nombre de décimales correctes double à chaque étape !
->     
-
-> [!fail] Points faibles
-> 
-> - **Nécessite la dérivée** $f'(x)$.
->     
-> - **Fragile** : Si on part trop loin de la solution, ou si la dérivée est nulle ($f'(x) \approx 0$), la méthode peut partir dans le décor (diverger).
->     
-
-## 3. La Méthode de la Sécante
-
-_Le compromis "Newton sans dérivée"._
-
-### 💡 L'idée intuitive
-
-C'est comme Newton, mais on ne calcule pas la tangente (car on ne veut pas calculer la dérivée). On remplace la tangente par une droite (la **sécante**) qui relie les deux derniers points connus.
-
-### 📝 La Formule
-
-C'est la même que Newton, mais on remplace $f'(x_n)$ par une approximation :
-
-$$x_{i+1} = x_i - f(x_i) \frac{x_i - x_{i-1}}{f(x_i) - f(x_{i-1})}$$
-
-> [!check] Points forts
-> 
-> - **Pas besoin de dérivée** calculée analytiquement.
->     
-> - **Rapide** (Superlinéaire) : Plus rapide que la Bissection, un tout petit peu moins que Newton.
->     
-
-> [!fail] Points faibles
-> 
-> - Nécessite **2 points** au départ.
->     
-> - Moins stable que la Bissection.
->     
-
-## 4. La Méthode du Point Fixe
-
-_L'approche "transformation"._
-
-### 💡 L'idée intuitive
-
-On transforme l'équation $f(x)=0$ sous la forme $x = g(x)$. On injecte une valeur dans $g$, on récupère le résultat, et on le réinjecte dans $g$, encore et encore.
-
-### 📝 La Formule
-
-$$x_{k+1} = g(x_k)$$
-
-### ⚠️ Condition de vie ou de mort (Convergence)
-
-Pour que ça marche, la pente de $g(x)$ ne doit pas être trop raide autour de la solution.
-
-> [!important] Règle d'or
->  La méthode converge si $|g'(x)| < 1$.
-> 
-> - Si la dérivée est petite (courbe plate), ça converge vite.
->     
-> - Si la dérivée est grande (pente raide), ça diverge (on s'éloigne).
->     
-
-## 🏆 Tableau Récapitulatif : Que choisir ?
-
-| Méthode        | Vitesse        | J'ai besoin de...                   | Quand l'utiliser ?                                                            |
-| -------------- | -------------- | ----------------------------------- | ----------------------------------------------------------------------------- |
-| **Bissection** | 🐢 Lente       | 2 points qui encadrent la racine.   | Quand on veut être **sûr à 100%** de trouver la solution, même si c'est long. |
-| **Point Fixe** | 🚶 Variable    | Une fonction $g(x)$ dont $          | g'                                                                            |
-| **Sécante**    | 🏃 Rapide      | 2 points de départ.                 | Quand on veut aller vite mais qu'on ne peut pas calculer la dérivée.          |
-| **Newton**     | 🚀 Très Rapide | 1 point + la formule de la dérivée. | Quand on veut de la **haute précision** et qu'on connaît la dérivée.          |
-|                |                |                                     |                                                                               |
-
-> [!tip] Stratégie Hybride (Le meilleur des deux mondes) 
-> En pratique, les logiciels utilisent souvent une **Bissection** au début pour s'approcher de la zone sûre, puis basculent sur **Newton** pour finir très rapidement le travail avec une grande précision.
+> - Coûteux pour les très grandes matrices (complexité $O(N^3)$).
+>

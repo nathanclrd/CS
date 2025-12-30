@@ -6,9 +6,9 @@
 | **Created time** | 21-12-2025 14:51             |
 |                  |                              |
 1. [[Linear Systems]]
-2. [[Eigen Values]]
+2. [[Non-Linear equations]]
 3. [[Regression]]
-4. [[Non-Linear equations]]
+4. [[Eigen Values]]
 5. [[Non-Linear systems]]
 6. [[Derivatives]]
 7. [[Integration]]

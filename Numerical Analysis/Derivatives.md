@@ -1,17 +1,17 @@
-| Topic |
-| :--- |
-| [[#1. La Méthode Naïve (Différence Avant)]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#💡 L'idée intuitive]] |
+| Topic                                                                   |
+| :---------------------------------------------------------------------- |
+| [[#1. La Méthode Naïve (Différence Avant)]]                             |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#💡 L'idée intuitive]]                        |
 | &nbsp;&nbsp;&nbsp;&nbsp;[[#⚠️ Analyse de l'Erreur (Le "V" de la mort)]] |
-| [[#2. Les Différences Centrales]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#💡 L'idée intuitive]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#📝 La Formule]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#✨ Pourquoi c'est mieux ?]] |
-| [[#3. Dérivées d'Ordre Supérieur]] |
-| [[#4. Extrapolation de Richardson]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#💡 L'idée intuitive]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#📝 L'Algorithme]] |
-| [[#🏆 Synthèse Comparative]] |
+| [[#2. Les Différences Centrales]]                                       |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#💡 L'idée intuitive]]                        |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#📝 La Formule]]                              |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#✨ Pourquoi c'est mieux ?]]                   |
+| [[#3. Dérivées d'Ordre Supérieur]]                                      |
+| [[#4. Extrapolation de Richardson]]                                     |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#💡 L'idée intuitive]]                        |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#📝 L'Algorithme]]                            |
+| [[#🏆 Synthèse Comparative]]                                            |
 
 # Chapitre : Différenciation Numérique
 

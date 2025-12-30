@@ -1,35 +1,36 @@
-| Topic |
-| :--- |
-| [[#1. Core Definitions]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Eigenvalues & Eigenvectors]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Multiplicities]] |
-| [[#2. Key Polynomials]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Characteristic Polynomial]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Minimal Polynomial ($\pi_A$)]] |
-| [[#3. Theoretical Properties]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Similar Matrices]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Polynomial Lemma]] |
-| [[#4. Criteria for Diagonalization]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Corollaries & Applications]] |
-| [[#5. Practical Algorithm]] |
-| [[#6. Solved Example: Computing the Basis]] |
-| [[#1. Valeurs Propres et Polynôme Caractéristique]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#1. Critère de valeur propre]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#2. Invariance par similitude]] |
-| [[#2. Vecteurs Propres et Multiplicités]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#3. Lien colonnes $S$ / vecteurs propres]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#4. Inégalité des multiplicités]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#5. Déterminant et valeurs propres]] |
-| [[#3. Polynôme Minimal]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#6. Propriété de divisibilité (1)]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#7. Unicité du polynôme minimal]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#8. Propriété de divisibilité (2)]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#9. Polynôme de matrice et vecteur propre]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#10. Racines du polynôme minimal]] |
+
+| Topic                                                                           |
+| :------------------------------------------------------------------------------ |
+| [[#1. Core Definitions]]                                                        |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Eigenvalues & Eigenvectors]]                         |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Multiplicities]]                                     |
+| [[#2. Key Polynomials]]                                                         |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Characteristic Polynomial]]                          |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Minimal Polynomial ($\pi_A$)]]                       |
+| [[#3. Theoretical Properties]]                                                  |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Similar Matrices]]                                   |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Polynomial Lemma]]                                   |
+| [[#4. Criteria for Diagonalization]]                                            |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Corollaries & Applications]]                         |
+| [[#5. Practical Algorithm]]                                                     |
+| [[#6. Solved Example: Computing the Basis]]                                     |
+| [[#1. Valeurs Propres et Polynôme Caractéristique]]                             |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#1. Critère de valeur propre]]                        |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#2. Invariance par similitude]]                       |
+| [[#2. Vecteurs Propres et Multiplicités]]                                       |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#3. Lien colonnes $S$ / vecteurs propres]]            |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#4. Inégalité des multiplicités]]                     |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#5. Déterminant et valeurs propres]]                  |
+| [[#3. Polynôme Minimal]]                                                        |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#6. Propriété de divisibilité (1)]]                   |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#7. Unicité du polynôme minimal]]                     |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#8. Propriété de divisibilité (2)]]                   |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#9. Polynôme de matrice et vecteur propre]]           |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#10. Racines du polynôme minimal]]                    |
 | &nbsp;&nbsp;&nbsp;&nbsp;[[#11. Cas des valeurs propres simples (Corollaire 1)]] |
-| [[#4. Diagonalisation]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#12. Théorème de Diagonalisation (Critères)]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#13. Condition suffisante (Corollaire 2)]] |
+| [[#4. Diagonalisation]]                                                         |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#12. Théorème de Diagonalisation (Critères)]]         |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#13. Condition suffisante (Corollaire 2)]]            |
 
 Tags: #math #linear_algebra #matrices #eigenvalues #diagonalization
 
@@ -211,15 +212,19 @@ Ce document recense les **13 démonstrations** du chapitre sur la **Diagonalisat
 
 ### 1. Critère de valeur propre
 
-> [!important] Proposition Un nombre complexe $\lambda$ est valeur propre de $A$ si et seulement si il est racine du polynôme caractéristique de $A$ (c'est-à-dire $\det(A - \lambda I_m) = 0$).
+> [!important] Proposition 
+> Un nombre complexe $\lambda$ est valeur propre de $A$ si et seulement si il est racine du polynôme caractéristique de $A$ (c'est-à-dire $\det(A - \lambda I_m) = 0$).
 
-> [!example]- Démonstration $\lambda$ est valeur propre de $A$ $\iff$ Il existe $x \neq 0$ tel que $Ax = \lambda x$ $\iff$ Le système homogène $(A - \lambda I_m)x = 0$ admet une solution non nulle. $\iff$ La matrice $A - \lambda I_m$ n'est pas inversible (le système n'est pas de Cramer). $\iff \det(A - \lambda I_m) = 0$. $\iff \lambda$ est racine du polynôme caractéristique.
+> [!example]- Démonstration 
+> $\lambda$ est valeur propre de $A$ $\iff$ Il existe $x \neq 0$ tel que $Ax = \lambda x$ $\iff$ Le système homogène $(A - \lambda I_m)x = 0$ admet une solution non nulle. $\iff$ La matrice $A - \lambda I_m$ n'est pas inversible (le système n'est pas de Cramer). $\iff \det(A - \lambda I_m) = 0$. $\iff \lambda$ est racine du polynôme caractéristique.
 
 ### 2. Invariance par similitude
 
-> [!important] Proposition Si $A$ et $B$ sont semblables (i.e., $B = S^{-1}AS$), alors elles ont le même polynôme caractéristique.
+> [!important] Proposition 
+> Si $A$ et $B$ sont semblables (i.e., $B = S^{-1}AS$), alors elles ont le même polynôme caractéristique.
 
-> [!example]- Démonstration Calculons le polynôme caractéristique de $S^{-1}AS$ :
+> [!example]- Démonstration
+>  Calculons le polynôme caractéristique de $S^{-1}AS$ :
 > 
 > $$\begin{aligned} \det(S^{-1}AS - X I_m) &= \det(S^{-1}AS - X S^{-1}I_m S) \\ &= \det(S^{-1}(A - X I_m)S) \\ &= \det(S^{-1}) \cdot \det(A - X I_m) \cdot \det(S) \end{aligned}$$
 > 
@@ -231,9 +236,11 @@ Ce document recense les **13 démonstrations** du chapitre sur la **Diagonalisat
 
 ### 3. Lien colonnes $S$ / vecteurs propres
 
-> [!important] Lemme La $j$-ème colonne de $S^{-1}AS$ est égale à $\lambda e_j$ si et seulement si la $j$-ème colonne de $S$ est un vecteur propre de $A$ relatif à $\lambda$.
+> [!important] Lemme 
+> La $j$-ème colonne de $S^{-1}AS$ est égale à $\lambda e_j$ si et seulement si la $j$-ème colonne de $S$ est un vecteur propre de $A$ relatif à $\lambda$.
 
-> [!example]- Démonstration Notons $c_j$ la $j$-ème colonne de $S$.
+> [!example]- Démonstration
+>  Notons $c_j$ la $j$-ème colonne de $S$.
 > 
 > - La $j$-ème colonne de $AS$ est $A c_j$.
 >     
@@ -244,9 +251,11 @@ Ce document recense les **13 démonstrations** du chapitre sur la **Diagonalisat
 
 ### 4. Inégalité des multiplicités
 
-> [!important] Proposition La multiplicité géométrique d'une valeur propre $\lambda$ ($\dim E_\lambda$) est inférieure ou égale à sa multiplicité algébrique (dans $\chi_A$).
+> [!important] Proposition 
+> La multiplicité géométrique d'une valeur propre $\lambda$ ($\dim E_\lambda$) est inférieure ou égale à sa multiplicité algébrique (dans $\chi_A$).
 
-> [!example]- Démonstration Soit $d = \dim E_\lambda(A)$. Soit $(x_1, ..., x_d)$ une base de l'espace propre $E_\lambda(A)$. On complète cette famille en une base $(x_1, ..., x_m)$ de $\mathbb{C}^m$. Soit $S$ la matrice inversible dont les colonnes sont ces vecteurs.
+> [!example]- Démonstration 
+> Soit $d = \dim E_\lambda(A)$. Soit $(x_1, ..., x_d)$ une base de l'espace propre $E_\lambda(A)$. On complète cette famille en une base $(x_1, ..., x_m)$ de $\mathbb{C}^m$. Soit $S$ la matrice inversible dont les colonnes sont ces vecteurs.
 > 
 > D'après le lemme précédent, comme les $d$ premières colonnes sont des vecteurs propres pour $\lambda$, la matrice $B = S^{-1}AS$ est de la forme :
 > 
@@ -260,9 +269,11 @@ Ce document recense les **13 démonstrations** du chapitre sur la **Diagonalisat
 
 ### 5. Déterminant et valeurs propres
 
-> [!important] Proposition Le déterminant de $A$ est égal au produit de ses valeurs propres (comptées avec multiplicités).
+> [!important] Proposition
+>  Le déterminant de $A$ est égal au produit de ses valeurs propres (comptées avec multiplicités).
 
-> [!example]- Démonstration On sait que $\chi_A(X) = \prod_{i=1}^m (\lambda_i - X)$. En évaluant ce polynôme en $0$ :
+> [!example]- Démonstration
+>  On sait que $\chi_A(X) = \prod_{i=1}^m (\lambda_i - X)$. En évaluant ce polynôme en $0$ :
 > 
 > $$\chi_A(0) = \det(A - 0 \cdot I_m) = \det(A)$$
 > 
@@ -276,9 +287,11 @@ Ce document recense les **13 démonstrations** du chapitre sur la **Diagonalisat
 
 ### 6. Propriété de divisibilité (1)
 
-> [!important] Lemme Si $\pi$ est un polynôme minimal de $A$ et $P$ un polynôme annulateur ($P(A)=0$), alors $\pi$ divise $P$.
+> [!important] Lemme 
+> Si $\pi$ est un polynôme minimal de $A$ et $P$ un polynôme annulateur ($P(A)=0$), alors $\pi$ divise $P$.
 
-> [!example]- Démonstration Effectuons la division euclidienne de $P$ par $\pi$ :
+> [!example]- Démonstration
+>  Effectuons la division euclidienne de $P$ par $\pi$ :
 > 
 > $$P = Q\pi + R \quad \text{avec} \quad \deg(R) < \deg(\pi)$$
 > 
@@ -290,19 +303,24 @@ Ce document recense les **13 démonstrations** du chapitre sur la **Diagonalisat
 
 ### 7. Unicité du polynôme minimal
 
-> [!important] Proposition Il existe un **unique** polynôme minimal de $A$ (unitaire).
+> [!important] Proposition
+>  Il existe un **unique** polynôme minimal de $A$ (unitaire).
 
-> [!example]- Démonstration Soient $P$ et $Q$ deux polynômes minimaux (donc unitaires et de même degré minimal). D'après le lemme précédent, $P$ divise $Q$ et $Q$ divise $P$. Comme ils sont unitaires, ils sont nécessairement égaux : $P=Q$.
+> [!example]- Démonstration 
+> Soient $P$ et $Q$ deux polynômes minimaux (donc unitaires et de même degré minimal). D'après le lemme précédent, $P$ divise $Q$ et $Q$ divise $P$. Comme ils sont unitaires, ils sont nécessairement égaux : $P=Q$.
 
 ### 8. Propriété de divisibilité (2)
 
-> [!important] Proposition Le polynôme minimal divise le polynôme caractéristique.
+> [!important] Proposition 
+> Le polynôme minimal divise le polynôme caractéristique.
 
-> [!example]- Démonstration C'est une conséquence directe du **Théorème de Cayley-Hamilton** (admis : $\chi_A(A) = 0$). Puisque $\chi_A$ est un polynôme annulateur, le polynôme minimal le divise (d'après le lemme de divisibilité).
+> [!example]- Démonstration 
+> C'est une conséquence directe du **Théorème de Cayley-Hamilton** (admis : $\chi_A(A) = 0$). Puisque $\chi_A$ est un polynôme annulateur, le polynôme minimal le divise (d'après le lemme de divisibilité).
 
 ### 9. Polynôme de matrice et vecteur propre
 
-> [!important] Lemme Pour tout $P \in \mathbb{C}[X]$ et toute valeur propre $\lambda$ de $A$ associée au vecteur propre $x$, on a :
+> [!important] Lemme 
+> Pour tout $P \in \mathbb{C}[X]$ et toute valeur propre $\lambda$ de $A$ associée au vecteur propre $x$, on a :
 > 
 > $$P(A)x = P(\lambda)x$$
 
@@ -320,9 +338,11 @@ Ce document recense les **13 démonstrations** du chapitre sur la **Diagonalisat
 
 ### 10. Racines du polynôme minimal
 
-> [!important] Proposition Les racines du polynôme minimal sont exactement les valeurs propres de $A$.
+> [!important] Proposition 
+> Les racines du polynôme minimal sont exactement les valeurs propres de $A$.
 
-> [!example]- Démonstration Soit $\pi$ le polynôme minimal.
+> [!example]- Démonstration 
+> Soit $\pi$ le polynôme minimal.
 > 
 > **(**$\Rightarrow$**)** Si $\lambda$ est racine de $\pi$, alors $\lambda$ est racine de $\chi_A$ (car $\pi$ divise $\chi_A$), donc c'est une valeur propre.
 > 
@@ -330,9 +350,11 @@ Ce document recense les **13 démonstrations** du chapitre sur la **Diagonalisat
 
 ### 11. Cas des valeurs propres simples (Corollaire 1)
 
-> [!important] Corollaire Si toutes les valeurs propres de $A$ sont simples, alors le polynôme minimal est égal au polynôme caractéristique (au signe près).
+> [!important] Corollaire
+>  Si toutes les valeurs propres de $A$ sont simples, alors le polynôme minimal est égal au polynôme caractéristique (au signe près).
 
-> [!example]- Démonstration Si $A$ a $m$ valeurs propres simples $\lambda_1, ..., \lambda_m$, alors :
+> [!example]- Démonstration
+>  Si $A$ a $m$ valeurs propres simples $\lambda_1, ..., \lambda_m$, alors :
 > 
 > $$\chi_A(X) = \prod (X - \lambda_i)$$
 > 
@@ -342,7 +364,8 @@ Ce document recense les **13 démonstrations** du chapitre sur la **Diagonalisat
 
 ### 12. Théorème de Diagonalisation (Critères)
 
-> [!important] Théorème Les conditions suivantes sont équivalentes :
+> [!important] Théorème 
+> Les conditions suivantes sont équivalentes :
 > 
 > 1. $A$ est diagonalisable.
 >     
@@ -353,7 +376,8 @@ Ce document recense les **13 démonstrations** du chapitre sur la **Diagonalisat
 > 4. Pour chaque valeur propre, la multiplicité géométrique égale la multiplicité algébrique.
 >     
 
-> [!example]- Démonstration **(1** $\Rightarrow$ **2)** : Si $A$ est diagonalisable, $S^{-1}AS = D$. Les colonnes de $S$ sont des vecteurs propres (Lemme 3). Comme $S$ est inversible, ses colonnes sont indépendantes.
+> [!example]- Démonstration 
+> **(1** $\Rightarrow$ **2)** : Si $A$ est diagonalisable, $S^{-1}AS = D$. Les colonnes de $S$ sont des vecteurs propres (Lemme 3). Comme $S$ est inversible, ses colonnes sont indépendantes.
 > 
 > **(2** $\Rightarrow$ **3)** : Soit $m_i$ le nombre de vecteurs propres linéairement indépendants associés à $\lambda_i$ qu'on a trouvés. On a $\sum m_i = m$. Or $m_i \le \dim(E_{\lambda_i}) \le \text{mult alg}(\lambda_i)$. La somme des mult alg vaut $m$. Donc toutes les inégalités sont des égalités. Donc $\sum \dim(E_{\lambda_i}) = m$.
 > 
@@ -363,6 +387,8 @@ Ce document recense les **13 démonstrations** du chapitre sur la **Diagonalisat
 
 ### 13. Condition suffisante (Corollaire 2)
 
-> [!important] Corollaire Si $A$ possède uniquement des valeurs propres simples, alors $A$ est diagonalisable.
+> [!important] Corollaire 
+> Si $A$ possède uniquement des valeurs propres simples, alors $A$ est diagonalisable.
 
-> [!example]- Démonstration Si toutes les multiplicités algébriques valent 1. Comme $1 \le \text{mult géo} \le \text{mult alg} = 1$, alors la multiplicité géométrique vaut toujours 1. La condition 4 du théorème précédent est vérifiée.
+> [!example]- Démonstration 
+> Si toutes les multiplicités algébriques valent 1. Comme $1 \le \text{mult géo} \le \text{mult alg} = 1$, alors la multiplicité géométrique vaut toujours 1. La condition 4 du théorème précédent est vérifiée.

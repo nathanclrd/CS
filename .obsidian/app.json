@@ -3,5 +3,7 @@
   "userIgnoreFilters": [
     "Templates/"
   ],
-  "alwaysUpdateLinks": true
+  "alwaysUpdateLinks": true,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "Quick Notes"
 }

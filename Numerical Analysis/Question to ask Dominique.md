@@ -1,3 +1,5 @@
 - We we do iteration on like gauss seidel or jacobi do we have to precise each step or with can just give the answer ? 
  - Faut il tjr verifier la convergence avant de travailler (GAUSS SEIDEL,JACOBI)
  - Calculette graphique ?
+ - Utilité de faire Quasi newton si on a Newton-Raphson. Combien d'itération si pas demandé ?
+ - Quand on chercher la convergence avec un tableau donné faut il passer par la reg lin a chaque fois ou isoler p peut suffire

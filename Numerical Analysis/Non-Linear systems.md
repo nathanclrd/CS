@@ -1,20 +1,20 @@
-| Topic |
-| :--- |
-| [[#1. La Méthode du Point Fixe]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#💡 Principe]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#📝 Formulations possibles (Exemple)]] |
+| Topic                                                                 |
+| :-------------------------------------------------------------------- |
+| [[#1. La Méthode du Point Fixe]]                                      |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#💡 Principe]]                              |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#📝 Formulations possibles (Exemple)]]      |
 | &nbsp;&nbsp;&nbsp;&nbsp;[[#⚠️ Condition de Convergence (Rigoureuse)]] |
-| [[#2. La Méthode de Newton (Newton-Raphson)]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#💡 Principe]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#🔑 La Matrice Jacobienne $J_F$]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#⚙️ L'Algorithme Complet]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#⚖️ Analyse Critique]] |
-| [[#3. La Méthode Quasi-Newton (Méthode de Broyden)]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#💡 Principe]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#📝 Formule de Mise à Jour de Broyden]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#⚙️ L'Algorithme]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#⚖️ Analyse Critique]] |
-| [[#🏆 Synthèse Comparée]] |
+| [[#2. La Méthode de Newton (Newton-Raphson)]]                         |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#💡 Principe]]                              |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#🔑 La Matrice Jacobienne $J_F$]]           |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#⚙️ L'Algorithme Complet]]                  |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#⚖️ Analyse Critique]]                      |
+| [[#3. La Méthode Quasi-Newton (Méthode de Broyden)]]                  |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#💡 Principe]]                              |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#📝 Formule de Mise à Jour de Broyden]]     |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#⚙️ L'Algorithme]]                          |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#⚖️ Analyse Critique]]                      |
+| [[#🏆 Synthèse Comparée]]                                             |
 
 # Chapitre : Systèmes d'Équations Non Linéaires
 
@@ -23,7 +23,8 @@
 > 
 > $$F(\vec{x}) = \vec{0}$$
 > 
-> **Exemple Fil Rouge du cours :** Intersection d'un cercle et d'une hyperbole :
+> **Exemple 
+> Fil Rouge du cours :** Intersection d'un cercle et d'une hyperbole :
 > 
 > $$\begin{cases} x^2 + y^2 - 4 = 0 \\ xy - 1 = 0 \end{cases} \implies F(\vec{x}) = \begin{pmatrix} x^2+y^2-4 \\ xy-1 \end{pmatrix}$$
 

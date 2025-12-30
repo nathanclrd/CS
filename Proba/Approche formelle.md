@@ -1,22 +1,22 @@
-| Topic |
-| :--- |
-| [[#Tags: #Probabilités #Kolmogorov #Conditionnement #Bayes #ULiège #Synthèse]] |
-| [[#3.1 Mesure de probabilité]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#La $\sigma$-algèbre (Le domaine de définition)]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Axiomes de Kolmogorov]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Propriétés fondamentales et théoriques]] |
-| [[#3.2 Retour sur le cas fini]] |
-| [[#3.3 Probabilités conditionnelles]] |
-| [[#3.4 Indépendance d'événements]] |
-| [[#3.5 Loi des probabilités totales]] |
-| [[#3.6 Formule de Bayes]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Exemple : L'énigme des chaussettes (Bayes III)]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#1. Preuve des règles de calcul (Prop 3.1.7)]] |
+| Topic                                                                                   |
+| :-------------------------------------------------------------------------------------- |
+| [[#Tags: #Probabilités #Kolmogorov #Conditionnement #Bayes #ULiège #Synthèse]]          |
+| [[#3.1 Mesure de probabilité]]                                                          |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#La $\sigma$-algèbre (Le domaine de définition)]]             |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Axiomes de Kolmogorov]]                                      |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Propriétés fondamentales et théoriques]]                     |
+| [[#3.2 Retour sur le cas fini]]                                                         |
+| [[#3.3 Probabilités conditionnelles]]                                                   |
+| [[#3.4 Indépendance d'événements]]                                                      |
+| [[#3.5 Loi des probabilités totales]]                                                   |
+| [[#3.6 Formule de Bayes]]                                                               |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Exemple : L'énigme des chaussettes (Bayes III)]]             |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#1. Preuve des règles de calcul (Prop 3.1.7)]]                |
 | &nbsp;&nbsp;&nbsp;&nbsp;[[#2. Preuve que la probabilité conditionnelle est une mesure]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#3. Retour sur le cas fini équiprobable (Slide 15)]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#4. Probabilité d'une union dénombrable (Slide 17)]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#5. Preuves sur l'indépendance]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#6. Preuve de la Loi des probabilités totales]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#3. Retour sur le cas fini équiprobable (Slide 15)]]          |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#4. Probabilité d'une union dénombrable (Slide 17)]]          |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#5. Preuves sur l'indépendance]]                              |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#6. Preuve de la Loi des probabilités totales]]               |
 
 ## Tags: #Probabilités #Kolmogorov #Conditionnement #Bayes #ULiège #Synthèse
 

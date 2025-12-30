@@ -1,22 +1,22 @@
-| Topic |
-| :--- |
-| [[#Table of Contents]] |
-| [[#1. Introduction to Initial Value Problems (IVP)]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Definition]] |
-| [[#2. Stability of Differential Equations]] |
-| [[#3. Explicit Euler Method]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Formula]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Error Analysis]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Stability Region]] |
-| [[#4. Higher-Order Taylor Methods]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Second-Order Method]] |
-| [[#5. Implicit Euler Method]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Formula]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Characteristics]] |
-| [[#6. Runge-Kutta Methods]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Concept]] |
+| Topic                                                      |
+| :--------------------------------------------------------- |
+| [[#Table of Contents]]                                     |
+| [[#1. Introduction to Initial Value Problems (IVP)]]       |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Definition]]                    |
+| [[#2. Stability of Differential Equations]]                |
+| [[#3. Explicit Euler Method]]                              |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Formula]]                       |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Error Analysis]]                |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Stability Region]]              |
+| [[#4. Higher-Order Taylor Methods]]                        |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Second-Order Method]]           |
+| [[#5. Implicit Euler Method]]                              |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Formula]]                       |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Characteristics]]               |
+| [[#6. Runge-Kutta Methods]]                                |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Concept]]                       |
 | &nbsp;&nbsp;&nbsp;&nbsp;[[#Classical Runge-Kutta 4 (RK4)]] |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[#Summary of RK]] |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[#Summary of RK]]                 |
 
 **Tags:** #NumericalAnalysis #ODE #Math #Simulation
 
